@@ -1,7 +1,7 @@
 import React from "react";
 import { FaSearch, FaMapMarkerAlt, FaBus, FaInfoCircle } from "react-icons/fa";
 import { useState, useRef, useEffect, createContext } from "react";
-import Maps from "./Maps";
+import Bus from "./Bus";
 import img from "./image.png";
 
 function SearchBar() {
@@ -119,7 +119,7 @@ function SearchBar() {
           </div>
         </>
       ) : (
-        <>{bus && <Maps />}</>
+        <>{bus && <Bus />}</>
       )}
     </div>
   );
