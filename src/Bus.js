@@ -118,7 +118,7 @@ function Bus() {
             </>
           ) : (
             <div>
-              <div>
+              <div className="editButton">
                 <button id="EditFav" className="element">
                   <p id="buttonText">Edit +</p>
                 </button>
