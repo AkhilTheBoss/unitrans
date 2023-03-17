@@ -6,9 +6,26 @@
   border: 2px solid gray;
 }
 
+#buttonText {
+  color: white;
+  font-size: 16px;
+}
+
+.editButton {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+/* #EditFav {
+  display: flex;
+  justify-content: center;
+} */
+
 #buttons {
   display: inline;
-  margin-left: 400px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .commonButton {
