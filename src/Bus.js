@@ -1,24 +1,42 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import "./Bus.css";
+import Map from "./Map";
 import { useState, useRef, useEffect, createContext } from "react";
 import { FaSearch, FaMapMarkerAlt, FaHome, FaInfoCircle } from "react-icons/fa";
 
 function Bus() {
   const [busLine, setBusLine] = useState(true);
   const [homeClick, setHomeClick] = useState(false);
+  const [mapClick, setMapClick] = useState(false);
 
   function GoHome() {
     setHomeClick(true);
   }
 
+  function gotobusline() {
+    setBusLine(true);
+  }
+
+  function gotofavorite() {
+    setBusLine(false);
+  }
+
+  function gomap() {
+    setMapClick(true);
+  }
+
   return (
     <div id="mapPage">
-      {!homeClick ? (
+      {!homeClick && !mapClick ? (
         <>
           <div id="buttons">
-            <button className="commonButton">bus Line</button>
-            <button className="commonButton">Favorite</button>
+            <button className="commonButton" onClick={gotobusline}>
+              bus Line
+            </button>
+            <button className="commonButton" onClick={gotofavorite}>
+              Favorite
+            </button>
           </div>
           {busLine ? (
             <>
@@ -99,7 +117,25 @@ function Bus() {
               </div>
             </>
           ) : (
-            <div>HI</div>
+            <div>
+              <div>
+                <button id="EditFav" className="element">
+                  <p id="buttonText">Edit +</p>
+                </button>
+              </div>
+              <div className="element" id="Ele1">
+                <p className="MapText" id="Bus1">
+                  <div id="circleA">K</div>
+                  <p className="lightText">Memorial Union</p>B St/Cowell/Drew
+                </p>
+              </div>
+              <div className="element" id="Ele2">
+                <p className="MapText" id="Bus2">
+                  <div id="circleA">J</div>
+                  <p className="lightText">Silo</p>E 8th/Pole Line/Moore/Loyola
+                </p>
+              </div>
+            </div>
           )}
 
           <div
@@ -118,7 +154,9 @@ function Bus() {
               }}
             >
               <FaMapMarkerAlt size={30} />
-              <button id="MainPageMapButton">Map</button>
+              <button id="MainPageMapButton" onClick={gomap}>
+                Map
+              </button>
             </div>
             <div
               style={{
@@ -145,7 +183,10 @@ function Bus() {
           </div>
         </>
       ) : (
-        <SearchBar />
+        <>
+          {mapClick && <Map />}
+          {homeClick && <SearchBar />}
+        </>
       )}
     </div>
   );
