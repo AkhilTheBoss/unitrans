@@ -3,6 +3,7 @@ import { FaSearch, FaMapMarkerAlt, FaBus, FaInfoCircle } from "react-icons/fa";
 import { useState, useRef, useEffect, createContext } from "react";
 import Bus from "./Bus";
 import img from "./image.png";
+import Map from "./Map";
 
 function SearchBar() {
   const [mapClick, setMapClick] = useState(false);
@@ -119,7 +120,10 @@ function SearchBar() {
           </div>
         </>
       ) : (
-        <>{bus && <Bus />}</>
+        <>
+          <>{bus && <Bus />}</>
+          <> {mapClick && <Map />} </>
+        </>
       )}
     </div>
   );
